@@ -1,0 +1,44 @@
+{#
+! Gateway in Standalone mode – The LoRaWAN module working alone as an Ethernet backhaul gateway or attached to a cellular router through Ethernet
+
+#}
+
+config t
+
+hostname {{ name }}
+
+ip ssh authentication-retries 3
+crypto key generate rsa
+clock timezone {{ America/Los_Angeles }}
+enable secret {{ en_pwd }}
+{#
+! While upgrading to Release 2.0.20, admin has to reconfigure the passwords 
+! for SHA512 to be effective and downgrade is not supported.
+#}
+username {{ username }} password {{ u_pwd }}
+interface FastEthernet 0/1 
+  description {{ desc }}
+  ip address {{ip-address}} {{subnet-mask}}
+  no shut
+
+exit
+
+ip default-gateway {{ gw-ip }}
+
+ip domain name {{ domain_name }}
+ip name-server {{ip-address}}
+
+! ip host thinkpark.com 122.23.12.1
+{% for host_name, host_ip in hosts %}
+ip host {{ host_name }} {{ host_ip }}
+{% endfor %}
+
+!ntp server ip name | address address
+ntp server address {{ ntp_ip }}
+cdp run
+
+! ???
+gps ubx enable
+
+! Radio is off by default
+no radio off
