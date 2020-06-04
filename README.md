@@ -13,6 +13,20 @@ There are two LoRaWAN gateway modes as below:
 
 Gateways can be configured via CLI or Cisco IoT Field Network Director (IoT FND).
 
+Workflow:
+
+1. Prepare USB drive with Cisco firmware, LRR Package, and Public key file
+
+   ![ThingPark Downloads](ThingPark_Downloads.png)
+
+2. Upgrade  Cisco Firmware as needed
+
+3. Configure gateway
+
+4. Install LRR package
+
+
+
 ---
 ### General Show Commands
 
