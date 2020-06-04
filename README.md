@@ -36,7 +36,9 @@ Gateway#show inventory
 IP config validation
 
 Gateway#show interfaces
+
 Gateway#show ip interfaces
+
 Gateway#show ip route
 
 Gateway#show ip host
@@ -44,26 +46,37 @@ Gateway#show ip host
 Gateway#show ntp status
 
 Gateway#show ntp associations
+
 Gateway#show ip ssh
+
 Gateway#show ssh
 
 Gateway#show container private-network
 
 Gateway(config)#container log all
+
 Container syslog has started.
 
 Gateway#show packet-forwarder uploads [detail ]
+
 Gateway#show packet-forwarder info
+
 Gateway#show packet-forwarder status
+
 Gateway#show packet-forwarder log list
+
+
 
 #### GPS
 
 The GPS antenna must be properly installed on the LoRaWAN interface for both LoRaWAN Class B endpoints and geolocation support.
 
 Gateway#show aes key
+
 Gateway#show gps log
+
 Gateway#show gps status
+
 Gateway#show gps history
 
 
@@ -71,6 +84,7 @@ Gateway#show gps history
 PGA version may require specific LoRaWAN forwarder version from the LoRaWAN Network Server partner.
 
 Gateway#show fpga
+
 Gateway#show fpga version
 
 #### Radio
@@ -80,10 +94,13 @@ Gateway#show radio
 The radio status is off by default. Please turn on radio before working with the packet forwarder. Use the following commands to turn on radio:
 
 Gateway#configure terminal
+
 Gateway(config)#no radio off
 
 #### Certificate Information
 Gateway#show sudi certificate 
+
+
 
 ---
 ### Example Configuration
