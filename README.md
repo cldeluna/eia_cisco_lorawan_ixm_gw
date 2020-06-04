@@ -87,18 +87,24 @@ Gateway#show sudi certificate
 
 ---
 ### Example Configuration
+```
 ! Gateway in Standalone mode – The LoRaWAN module working alone as an Ethernet backhaul gateway or attached to a cellular router through Ethernet
 config t
 
 hostname name
+
 ip domain name domain_name
 ip ssh authentication-retries 3
+
 crypto key generate rsa
+
 clock timezone America/Los_Angeles
+
 enable secret eia!now
+username admin password eia!now
 ! While upgrading to Release 2.0.20, admin has to reconfigure the passwords 
 ! for SHA512 to be effective and downgrade is not supported.
-username admin password eia!now
+
 interface FastEthernet 0/1 
   description LoRaWan GW01 Backhaul to Ethernet
   ip address ip-address subnet-mask
@@ -116,11 +122,15 @@ ntp server ip name | address address
 
 cdp run
 
-! ???
 gps ubx enable
 
 ! Radio is off by default
 no radio off
+
+end
+```
+
+
 
 
 LoRaWAN packet forwarder (LRR)
